@@ -11,6 +11,7 @@ async function bootstrap() {
     .setDescription('This is a mock auth API for testing purposes')
     .setVersion('1.0')
     .addTag('auth')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config, {

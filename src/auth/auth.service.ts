@@ -20,8 +20,7 @@ export class AuthService {
   }
 
   async login(user: any) {
-    console.log(user);
-    const payload = { email: user.email, verified: user.verified };
+    const payload = { email: user.email, verified: user.isVerified };
     return {
       access_token: this.jwtService.sign(payload),
     };
