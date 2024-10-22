@@ -8,7 +8,7 @@ export class LoginDto {
   })
   @IsNotEmpty()
   @IsEmail(undefined, { message: 'Please provide a valid email' })
-  email: string;
+  correo: string;
 
   @ApiProperty({
     example: 'Password123!',
