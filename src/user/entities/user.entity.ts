@@ -34,5 +34,8 @@ export class User {
   correo: string;
 
   @Column({ type: 'varchar' })
-  password: string;
+  clave: string;
+
+  @Column({ type: 'boolean', default: true })
+  verificado: boolean;
 }

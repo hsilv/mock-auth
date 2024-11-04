@@ -16,5 +16,5 @@ export class LoginDto {
   })
   @IsNotEmpty()
   @IsString({ message: 'Password must be a string' })
-  password: string;
+  clave: string;
 }

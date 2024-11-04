@@ -83,5 +83,5 @@ export class CreateUserDto {
   })
   @IsNotEmpty({ message: 'Provea una contraseña' })
   @IsString({ message: 'La contraseña debe ser una cadena' })
-  password: string;
+  clave: string;
 }
