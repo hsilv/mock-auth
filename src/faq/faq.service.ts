@@ -54,6 +54,15 @@ export class FaqService {
     return updated;
   }
 
+  async findLanding() {
+    const faqs = await this.faqRepository.findBy({ inLanding: true });
+    console.log(faqs);
+    if (!faqs.length) {
+      throw new NotFoundException('No faqs in landing');
+    }
+    return faqs;
+  }
+
   async remove(id: number) {
     await this.faqRepository.delete(id);
     return { ok: true };

@@ -28,6 +28,11 @@ export class FaqController {
     return this.faqService.findAll();
   }
 
+  @Get('landing')
+  findLanding() {
+    return this.faqService.findLanding();
+  }
+
   @Get('categories')
   findAllCategories() {
     return this.faqService.findAllCategories();

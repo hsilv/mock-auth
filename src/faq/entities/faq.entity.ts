@@ -15,4 +15,7 @@ export class Faq {
 
   @Column({ type: 'text' })
   respuesta: string;
+
+  @Column({ type: 'boolean', default: false })
+  inLanding: boolean;
 }

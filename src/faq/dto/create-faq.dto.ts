@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { IsBoolean, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 
 export const FAQ_ENUM = [
   'Piloto',
@@ -35,4 +35,12 @@ export class CreateFaqDto {
   @IsNotEmpty({ message: 'Provea la respuesta' })
   @IsString({ message: 'La respuesta debe ser una cadena' })
   respuesta: string;
+
+  @ApiProperty({
+    example: false,
+    description: 'If the FAQ is in the landing page',
+    required: false,
+  })
+  @IsBoolean({ message: 'El valor debe ser un booleano' })
+  inLanding: boolean;
 }
