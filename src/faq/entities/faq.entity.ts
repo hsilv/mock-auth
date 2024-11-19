@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 import { FAQ_ENUM } from '../dto/create-faq.dto';
 
-@Entity()
+@Entity('TB_MDT_FAQ')
 export class Faq {
   @PrimaryColumn({ type: 'int', generated: true })
   id: number;
