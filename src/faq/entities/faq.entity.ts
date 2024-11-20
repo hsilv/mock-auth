@@ -10,12 +10,12 @@ export class Faq {
   @Column({ type: 'varchar', length: 100, enum: FAQ_ENUM })
   categoria: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'clob' })
   pregunta: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'clob' })
   respuesta: string;
 
-  @Column({ type: 'boolean', default: false })
-  inLanding: boolean;
+  @Column({ type: 'number', default: 0 })
+  inLanding: number;
 }

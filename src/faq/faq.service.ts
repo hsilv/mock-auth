@@ -55,7 +55,7 @@ export class FaqService {
   }
 
   async findLanding() {
-    const faqs = await this.faqRepository.findBy({ inLanding: true });
+    const faqs = await this.faqRepository.findBy({ inLanding: 1 });
     console.log(faqs);
     if (!faqs.length) {
       throw new NotFoundException('No faqs in landing');

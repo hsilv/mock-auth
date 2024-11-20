@@ -19,17 +19,17 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@ApiTags('user')
+@ApiTags('Usuarios')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  @ApiOperation({ summary: 'Create a new user' })
+  @ApiOperation({ summary: 'Crea un nuevo usuario' })
   @ApiBody({ type: CreateUserDto })
   @ApiResponse({
     status: 201,
-    description: 'The user has been successfully created.',
+    description: 'El usuario fue creado con éxito.',
   })
   @ApiResponse({ status: 400, description: 'Bad Request.' })
   create(@Body() createUserDto: CreateUserDto) {
@@ -39,8 +39,8 @@ export class UserController {
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({ status: 200, description: 'Return all users.' })
+  @ApiOperation({ summary: 'Se obtienen todos los usuarios' })
+  @ApiResponse({ status: 200, description: 'Devuelve todos los usuarios' })
   findAll() {
     return this.userService.findAll();
   }
@@ -48,10 +48,10 @@ export class UserController {
   @Get(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Get a user by ID' })
-  @ApiParam({ name: 'id', description: 'The ID of the user' })
-  @ApiResponse({ status: 200, description: 'Return the user.' })
-  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiOperation({ summary: 'Obtiene un usuario por ID' })
+  @ApiParam({ name: 'id', description: 'El ID del usuario' })
+  @ApiResponse({ status: 200, description: 'Devuelve el usuario' })
+  @ApiResponse({ status: 404, description: 'Usuario no encontrado' })
   findOne(@Param('id') id: string) {
     return this.userService.findOne(id);
   }
@@ -59,13 +59,13 @@ export class UserController {
   @Delete(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Delete a user by ID' })
-  @ApiParam({ name: 'id', description: 'The ID of the user' })
+  @ApiOperation({ summary: 'Elimina un usuario por ID' })
+  @ApiParam({ name: 'id', description: 'El ID del usuario' })
   @ApiResponse({
     status: 200,
-    description: 'The user has been successfully deleted.',
+    description: 'El usuario ha sido eliminado con éxito.',
   })
-  @ApiResponse({ status: 404, description: 'User not found.' })
+  @ApiResponse({ status: 404, description: 'Usuario no encontrado.' })
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
   }

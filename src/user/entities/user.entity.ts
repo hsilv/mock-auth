@@ -36,6 +36,6 @@ export class User {
   @Column({ type: 'varchar' })
   clave: string;
 
-  @Column({ type: 'boolean', default: true })
-  verificado: boolean;
+  @Column({ type: 'number', default: 1 })
+  verificado: number;
 }
